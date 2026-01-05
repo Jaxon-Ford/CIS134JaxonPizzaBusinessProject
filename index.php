@@ -3,7 +3,7 @@
 <head>
     <!-- My Pizza Home Page -->
     <title>GetYourPizza</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
 <!-- Website Header -->
@@ -15,7 +15,7 @@
 <!-- Navigation Menu -->
 <nav>
     <a href="index.php">Home</a>
-    <a href="menu.php">Menu</a>
+    <a href="products.php">Menu</a>
     <a href="order.php">Order Now</a>
     <a href="contact.php">Contact Us</a>
 </nav>
