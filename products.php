@@ -57,14 +57,7 @@ $products = [
         <p>Fresh • Fast • Made Your Way</p>
     </header>
     <nav>
-        <?php
-        $navCaptions = ["Home", "Menu", "Order Now", "Contact Us"];
-        $navLinks = ["index.php", "products.php", "order.php", "contact.php"];
-        // Loop through nav arrays to create links
-        foreach ($navLinks as $index => $link) {
-            echo "<a href='{$link}'>{$navCaptions[$index]}</a>";
-        }
-        ?>
+        <?php include("inc_navigation.php"); ?>
     </nav>
     <div class="container">
         <h2>Our Menu</h2>
@@ -92,7 +85,7 @@ $products = [
     </div>
 
     <footer>
-        &copy; <?php echo date("Y"); ?> Jaxon's Pizza Palace - All Rights Reserved
+        <?php include("inc_footer.php"); ?>
     </footer>
 </body>
 </html>
