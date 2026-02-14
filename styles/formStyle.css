@@ -1,0 +1,61 @@
+/* ===== Form Styling ===== */
+
+form {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+form input[type="radio"],
+form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+form input[type="submit"] {
+    background-color: #d62828;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #a61b1b;
+}
+
+/* Error Messages */
+.error {
+    color: #d62828;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Success Message */
+.success {
+    background-color: #e6ffe6;
+    border: 1px solid #2d6a4f;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}

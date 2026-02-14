@@ -59,5 +59,3 @@ function checkPassword($password) {
     // If it passes all checks
     return TRUE;
 }
-
-?>
