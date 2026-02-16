@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- formv1.php Created 5-7-2018 by Ray Ryon -->
-    <!-- This page is an example of form input. -->
     <title>Login Form</title>
 </head>
 <body>
