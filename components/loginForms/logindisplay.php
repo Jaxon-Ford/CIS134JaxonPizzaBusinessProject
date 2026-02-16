@@ -35,24 +35,16 @@ function searchPasswordFile($user, $pass) {
 
     if (file_exists($file)) {
 
-        $fp = fopen($file, "r");
+        $lines = file($file, FILE_IGNORE_NEW_LINES);
 
-        // Priming read
-        $fileUser = trim(fgets($fp));
-
-        while (!feof($fp)) {
-
-            $filePass = trim(fgets($fp));
-
-            if ($user === $fileUser && $pass === $filePass) {
+        for($i = 0; $i < count($lines); $i+= 2) {
+            $fileUser = trim($lines[$i]);
+            $filePass = trim($lines[$i+1]);
+            if ($fileUser == $user && $filePass == $pass) {
                 $isLogin = true;
                 break;
             }
-
-            $fileUser = trim(fgets($fp));
         }
-
-        fclose($fp);
     }
 }
 
@@ -73,7 +65,6 @@ if (isset($_POST['Submit']) || isset($_POST['create'])) {
 
     if ($errorCount == 0) {
 
-        // ---------------- CREATE LOGIN ----------------
         if (isset($_POST['create'])) {
 
             $fp = fopen("password.txt", "a"); // Append mode
