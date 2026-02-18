@@ -5,6 +5,17 @@
  * Form for adding a pizza item
  */
 
+$host = "localhost";
+$dbUser = "root";           // Change if needed
+$dbPass = "";               // Change if needed
+$dbName = "jf_database";    // Your database name
+
+$conn = new mysqli($host, $dbUser, $dbPass, $dbName);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 $name = "";
 $price = "";
 $size = "";
@@ -15,6 +26,8 @@ $toppings = [];
 $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
 
     // NAME VALIDATION (required)
     if (empty($_POST["name"])) {
@@ -57,6 +70,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_POST["toppings"])) {
         $toppings = $_POST["toppings"];
     }
+
+    if (empty($errors)) {
+
+        // Convert toppings array to string
+        $toppingsStr = !empty($toppings) ? implode(", ", $toppings) : "None";
+
+        $sql = "INSERT INTO items (item_name, description, price, size, gluten_free, toppings)
+        VALUES (?, ?, ?, ?, ?, ?)";
+
+        $stmt = $conn->prepare($sql);
+        if ($stmt) {
+            $stmt->bind_param("ssdsss", $name, $description, $price, $size, $glutenFree, $toppingsStr);
+
+            if ($stmt->execute()) {
+                echo "<h2>Pizza Successfully Added to Database!</h2>";
+            } else {
+                echo "<h2 style='color:red;'>Database Error: " . $stmt->error . "</h2>";
+            }
+            $stmt->close();
+        } else {
+            echo "<h2 style='color:red;'>Database Error: " . $conn->error . "</h2>";
+        }
+    }
+
+    $conn->close();
 }
 ?>
 

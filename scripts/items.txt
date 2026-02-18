@@ -1,10 +1,10 @@
-Classic Pepperoni,Medium pepperoni pizza,12.99
-Cheese Pizza,Large cheese pizza,14.99
-Veggie Pizza,Vegetarian special,13.49
-Buffalo Wings,Hot and spicy wings,9.99
-Breadsticks,Garlic butter breadsticks,5.99
-Soda,Coca Cola 2-liter,3.49
-Garden Salad,Fresh mixed greens,6.99
-Chicken Alfredo,Creamy pasta dish,15.99
-Brownie,Chocolate dessert,4.99
-Meat Lovers,Loaded meat pizza,16.99
+Classic Pepperoni,Medium pepperoni pizza,12.99,Medium,No,None
+Cheese Pizza,Large cheese pizza,14.99,Large,No,None
+Veggie Pizza,Vegetarian special,13.49,Medium,No,None
+Buffalo Wings,Hot and spicy wings,9.99,Medium,No,None
+Breadsticks,Garlic butter breadsticks,5.99,Medium,No,None
+Soda,Coca Cola 2-liter,3.49,Medium,No,None
+Garden Salad,Fresh mixed greens,6.99,Medium,No,None
+Chicken Alfredo,Creamy pasta dish,15.99,Medium,No,None
+Brownie,Chocolate dessert,4.99,Medium,No,None
+Meat Lovers,Loaded meat pizza,16.99,Large,No,None
