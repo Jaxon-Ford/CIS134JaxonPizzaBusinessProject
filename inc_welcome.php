@@ -1,9 +1,24 @@
 <?php
-$isLogin = false;
-$username = null;
+session_start(); // Start or resume session
 
-if ($isLogin == true) {
-    echo "Welcome " . $_SESSION['username'];
+// Default values
+$isValid = false;
+$username = "";
+
+/* Get login status from session storage */
+if (isset($_SESSION["isValidUser"])) {
+    $isValid = $_SESSION["isValidUser"];
+}
+
+/* Get username from cookie storage */
+if (isset($_COOKIE["username"])) {
+    $username = $_COOKIE["username"];
+}
+
+/* Display appropriate message */
+if ($isValid == true) {
+    echo "Welcome " . $username;
 } else {
     echo "Please login";
 }
+?>

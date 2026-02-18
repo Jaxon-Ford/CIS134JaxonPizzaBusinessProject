@@ -1,4 +1,5 @@
 <?php
+session_start();
 $errorCount = 0;
 $isLogin = false;
 
@@ -63,6 +64,8 @@ if (isset($_POST['Submit']) || isset($_POST['create'])) {
     $UserName = validateUserName($_POST["Username"], "username");
     $Password = validatePassword($_POST["Password"], "password");
 
+    $expireTime = time() + (60 * 60 * 24 * 30);
+
     if ($errorCount == 0) {
 
         if (isset($_POST['create'])) {
@@ -74,6 +77,10 @@ if (isset($_POST['Submit']) || isset($_POST['create'])) {
 
             fclose($fp);
 
+            setcookie("username", $UserName, $expireTime);
+
+            $_SESSION["isValidUser"] = true;
+
             echo "<p><strong>Login Created Successfully!</strong></p>";
         }
 
@@ -82,14 +89,18 @@ if (isset($_POST['Submit']) || isset($_POST['create'])) {
             searchPasswordFile($UserName, $Password);
 
             if ($isLogin) {
+                setcookie("username", $UserName, $expireTime);
+                $_SESSION["isValidUser"] = true;
                 echo "<p><strong>Login Successful!</strong></p>";
             } else {
                 echo "<p><strong>Invalid Username or Password.</strong></p>";
+                $_SESSION["isValidUser"] = false;
             }
         }
 
     } else {
         echo "<p>Please re-enter your login information.</p>";
+        $_SESSION["isValidUser"] = false;
     }
 }
 ?>
